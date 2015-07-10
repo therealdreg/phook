@@ -1,0 +1,52 @@
+# Project: console_control
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../../OBJS/peb_hook.o ../../OBJS/console.o ../../OBJS/main.o ../../OBJS/console_admin.o ../../OBJS/console_ui.o ../../OBJS/threads.o ../../OBJS/PEB.o $(RES)
+LINKOBJ  = ../../OBJS/peb_hook.o ../../OBJS/console.o ../../OBJS/main.o ../../OBJS/console_admin.o ../../OBJS/console_ui.o ../../OBJS/threads.o ../../OBJS/PEB.o $(RES)
+LIBS =  -L"C:/MinGW/lib" -L"C:/WINDOWS/system32" --no-export-all-symbols --add-stdcall-alias C:/WINDOWS/system32/kernel32.dll -l ws2_32  -g3 
+INCS =  -I"C:/MinGW/include"  -I"C:/MinGW/include/sys" 
+CXXINCS =  -I"C:/MinGW/include/c++" 
+BIN  = ../bin/console.dll
+CXXFLAGS = $(CXXINCS) -DBUILDING_DLL=1   -g3
+CFLAGS = $(INCS) -DBUILDING_DLL=1 -masm=intel   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../bin/console.dll all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=../bin/libconsole.def
+STATICLIB=../bin/libconsole.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+../../OBJS/peb_hook.o: peb_hook.c
+	$(CC) -c peb_hook.c -o ../../OBJS/peb_hook.o $(CFLAGS)
+
+../../OBJS/console.o: console.c
+	$(CC) -c console.c -o ../../OBJS/console.o $(CFLAGS)
+
+../../OBJS/main.o: main.c
+	$(CC) -c main.c -o ../../OBJS/main.o $(CFLAGS)
+
+../../OBJS/console_admin.o: console_admin.c
+	$(CC) -c console_admin.c -o ../../OBJS/console_admin.o $(CFLAGS)
+
+../../OBJS/console_ui.o: console_ui.c
+	$(CC) -c console_ui.c -o ../../OBJS/console_ui.o $(CFLAGS)
+
+../../OBJS/threads.o: threads.c
+	$(CC) -c threads.c -o ../../OBJS/threads.o $(CFLAGS)
+
+../../OBJS/PEB.o: PEB.c
+	$(CC) -c PEB.c -o ../../OBJS/PEB.o $(CFLAGS)

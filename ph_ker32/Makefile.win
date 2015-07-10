@@ -1,0 +1,40 @@
+# Project: ph_ker32
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../../OBJS/main.o ../../OBJS/owns.o ../../OBJS/ph_ker32.o $(RES)
+LINKOBJ  = ../../OBJS/main.o ../../OBJS/owns.o ../../OBJS/ph_ker32.o $(RES)
+LIBS =  -L"C:/MinGW/lib" --no-export-all-symbols --def ph_ker32.def  -g3 
+INCS =  -I"C:/MinGW/include"  -I"C:/MinGW/include/sys" 
+CXXINCS =  -I"C:/MinGW/include/c++" 
+BIN  = ../bin/Windows_XP_SP3/ph_ker32.dll
+CXXFLAGS = $(CXXINCS) -DBUILDING_DLL=1   -g3
+CFLAGS = $(INCS) -DBUILDING_DLL=1 -masm=intel -l libwsock32   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../bin/Windows_XP_SP3/ph_ker32.dll all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+DLLWRAP=dllwrap.exe
+DEFFILE=../bin/Windows_XP_SP3/libph_ker32.def
+STATICLIB=../bin/Windows_XP_SP3/libph_ker32.a
+
+$(BIN): $(LINKOBJ)
+	$(DLLWRAP) --output-def $(DEFFILE) --implib $(STATICLIB) $(LINKOBJ) $(LIBS) -o $(BIN)
+
+../../OBJS/main.o: main.c
+	$(CC) -c main.c -o ../../OBJS/main.o $(CFLAGS)
+
+../../OBJS/owns.o: owns.c
+	$(CC) -c owns.c -o ../../OBJS/owns.o $(CFLAGS)
+
+../../OBJS/ph_ker32.o: ph_ker32.c
+	$(CC) -c ph_ker32.c -o ../../../../../OBJS/ph_ker32.o $(CFLAGS) -fomit-frame-pointer

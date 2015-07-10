@@ -1,0 +1,39 @@
+# Project: InjectorDll
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../../objs/injectordll.o ../../objs/main.o ../../objs/ui.o ../../objs/asm2c.o $(RES)
+LINKOBJ  = ../../objs/injectordll.o ../../objs/main.o ../../objs/ui.o ../../objs/asm2c.o $(RES)
+LIBS =  -L"C:/MinGW/lib"  -g3 -s 
+INCS =  -I"C:/MinGW/include"  -I"C:/MinGW/include/sys" 
+CXXINCS =  -I"C:/MinGW/include/c++" 
+BIN  = ../bin/InjectorDll.exe
+CXXFLAGS = $(CXXINCS)   -O3 -g3
+CFLAGS = $(INCS)   -O3 -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ../bin/InjectorDll.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "..\bin\InjectorDll.exe" $(LIBS)
+
+../../objs/injectordll.o: injectordll.c
+	$(CC) -c injectordll.c -o ../../objs/injectordll.o $(CFLAGS)
+
+../../objs/main.o: main.c
+	$(CC) -c main.c -o ../../objs/main.o $(CFLAGS)
+
+../../objs/ui.o: ui.c
+	$(CC) -c ui.c -o ../../objs/ui.o $(CFLAGS)
+
+../../objs/asm2c.o: ../common/sources/asm2c.c
+	$(CC) -c ../common/sources/asm2c.c -o ../../objs/asm2c.o $(CFLAGS)

@@ -1,0 +1,1 @@
+Tested in Windows Vista 6.0.6000 version.
