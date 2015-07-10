@@ -70,24 +70,24 @@ the port specified at the C:\ph_listen_ports.log  file.
     
     
      ph > help
-  _________________________________________________________________
- |                       Phook Prompt v1.0.1                       |
- |                                                                 |
- | Command list:                                                   |
- | --------------------------------------------------------------- |
- | help                      - Shows this screen                   |
- | exit                      - Closes and unloads the console      |
- | suspend                   - Pauses the programs execution       |
- | resume                    - Resumes the programs execution      |
- | showmodules               - Shows the modules list              |
- | load [param1]             - Loads in memory the library         |
- |                             especified in [param1]              |
- | unload [param1]           - Unloads a librery in memory         |
- |                             especified in [param1]              |
- | pebhook [param1] [param2] - Performs PEB Hook over a dll        |
- |                             [param1]: Name of the original dll  |
- |                             [param2]: Path to the DLL hook      |
- |_________________________________________________________________|
+     _________________________________________________________________
+    |                       Phook Prompt v1.0.1                       |
+    |                                                                 |
+    | Command list:                                                   |
+    | --------------------------------------------------------------- |
+    | help                      - Shows this screen                   |
+    | exit                      - Closes and unloads the console      |
+    | suspend                   - Pauses the programs execution       |
+    | resume                    - Resumes the programs execution      |
+    | showmodules               - Shows the modules list              |
+    | load [param1]             - Loads in memory the library         |
+    |                             especified in [param1]              |
+    | unload [param1]           - Unloads a librery in memory         |
+    |                             especified in [param1]              |
+    | pebhook [param1] [param2] - Performs PEB Hook over a dll        |
+    |                             [param1]: Name of the original dll  |
+    |                             [param2]: Path to the DLL hook      |
+    |_________________________________________________________________|
 
 
 3.- PEB HOOKING is performed to kernel32.dll with ph_ker32.dll:
