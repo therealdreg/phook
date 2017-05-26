@@ -4,11 +4,8 @@ Full DLL Hooking via Process Environment Block
 phook - The PEB Hooker, Phrack 65, Shearer & Dreg: http://phrack.org/issues/65/10.html#article
 
 * [Paper in Spanish](https://github.com/David-Reguera-Garcia-Dreg/phook/tree/master/papers/Spanish)
-
 * [Paper in Russian](https://github.com/David-Reguera-Garcia-Dreg/phook/tree/master/papers/Russian)
-
 * [Paper in French](https://github.com/David-Reguera-Garcia-Dreg/phook/tree/master/papers/French)
-
 * [Paper in Enlgish](https://github.com/David-Reguera-Garcia-Dreg/phook/tree/master/papers/Enlgish)
 
 ## Usage
